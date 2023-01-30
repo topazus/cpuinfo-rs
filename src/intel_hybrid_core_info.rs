@@ -1,7 +1,45 @@
-use crate::utils::cpuid_count;
+use crate::utils::{cpuid_count, extract_bit, extract_bits};
 
 #[cfg(target_arch = "x86_64")]
 use std::arch::x86_64::CpuidResult;
+
+#[derive(Debug)]
+pub enum CpuPurpose {
+    /// general purpose CPU core
+    GeneralPurpose,
+    /// performance CPU core
+    PerformancePurpose,
+    /// efficiency CPU core
+    EfficiencyPurpose,
+}
+
+/// Check for hybrid architecture
+/// 	From Intel® 64 and IA-32 Architectures Software Developer’s Manual Combined Volumes: 1, 2A, 2B, 2C, 2D, 3A, 3B, 3C, 3D, and 4
+/// 	Available at https://cdrdv2.intel.com/v1/dl/getContent/671200
+
+/// 	- CPUID[7h] is Structured Extended Feature Flags Enumeration Leaf (Output depends on ECX input value)
+/// 	  EDX, bit 15: Hybrid. If 1, the processor is identified as a hybrid part.
+
+/// 	- CPUID[1Ah] is Hybrid Information Enumeration Leaf (EAX = 1AH, ECX = 0)
+/// 	  EAX, bits 31-24: Core type
+pub fn get_cpu_purpose() -> CpuPurpose {
+    let cpuid = cpuid_count(0x7, 0x0);
+
+    if extract_bit(cpuid.edx, 15) == 0x1 {
+        let cpuid = cpuid_count(0x1A, 0x0);
+
+        match extract_bits(cpuid.eax, 31, 24) {
+            // Atom
+            0x20 => CpuPurpose::EfficiencyPurpose,
+            // Core
+            0x40 => CpuPurpose::PerformancePurpose,
+            _ => CpuPurpose::GeneralPurpose,
+        }
+    } else {
+        CpuPurpose::GeneralPurpose
+    }
+}
+
 
 /* https://github.com/slimbootloader/slimbootloader/blob/master/Platform/AlderlakeBoardPkg/Library/Stage2BoardInitLib/CpuInfoLib.c */
 
@@ -15,7 +53,6 @@ pub enum HybridCoreType {
     Invalid,
 }
 
-#[cfg(feature = "std")]
 impl std::fmt::Display for HybridCoreType {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         write!(f, "{:?}", self)
