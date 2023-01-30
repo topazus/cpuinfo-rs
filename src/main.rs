@@ -8,9 +8,9 @@ fn main() {
     // use HybridInfo
     let hybrid = IntelNativeModelId::from(&cpuid_count(0x7, 0x0));
     println!("{:?}", hybrid);
-    let core_type = HybridInfo::get_core_type2(&cpuid_count(0x1A, 0x0)).unwrap();
+    let core_type = HybridInfo::get_core_type2(&cpuid_count(0x1A, 0x0));
     println!("{:?}", core_type);
-    let core_type = HybridInfo::get_core_type(&cpuid_count(0x1A, 0x0)).unwrap();
+    let core_type = HybridInfo::get_core_type(&cpuid_count(0x1A, 0x0));
     println!("{:?}", core_type);
 
     println!("{:?}", intel_hybrid_core_info::is_hetero_core_supported());
