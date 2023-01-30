@@ -248,4 +248,5 @@ impl CpuId {
     }
 }
 
-// get CPUID dump data for every cpu
+// get CPUID dump raw data for every cpu
+pub fn cpuid_get_all_raw_data() {}

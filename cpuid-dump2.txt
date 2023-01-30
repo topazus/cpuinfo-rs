@@ -1,0 +1,608 @@
+vendor_id (0x00) = "GenuineIntel"
+version information (1/eax):
+┌───────────────┬───┐
+│    base family│  6│
+│     base model│ 10│
+│       stepping│  3│
+│extended family│  0│
+│ extended model│  9│
+│         family│  6│
+│          model│154│
+└───────────────┴───┘
+miscellaneous (1/ebx):
+┌──────────────────────────┬───┐
+│processor APIC physical id│  8│
+│                 max. cpus│128│
+│         CLFLUSH line size│  8│
+│               brand index│  0│
+└──────────────────────────┴───┘
+feature information (1/edx):
+┌────────────────┬───┐
+│             fpu│ ✅│
+│             vme│ ✅│
+│              de│ ✅│
+│             pse│ ✅│
+│             tsc│ ✅│
+│             msr│ ✅│
+│             pae│ ✅│
+│             mce│ ✅│
+│       cmpxchg8b│ ✅│
+│            apic│ ✅│
+│sysenter_sysexit│ ✅│
+│            mtrr│ ✅│
+│             pge│ ✅│
+│             mca│ ✅│
+│            cmov│ ✅│
+│             pat│ ✅│
+│           pse36│ ✅│
+│             psn│ ❌│
+│         clflush│ ✅│
+│              ds│ ✅│
+│            acpi│ ✅│
+│             mmx│ ✅│
+│   fxsave_fxstor│ ✅│
+│             sse│ ✅│
+│            sse2│ ✅│
+│              ss│ ✅│
+│             htt│ ✅│
+│              tm│ ✅│
+│             pbe│ ✅│
+└────────────────┴───┘
+feature information (1/ecx):
+┌─────────────┬───┐
+│         sse3│ ✅│
+│    pclmulqdq│ ✅│
+│      ds_area│ ✅│
+│monitor_mwait│ ✅│
+│          cpl│ ✅│
+│          vmx│ ✅│
+│          smx│ ✅│
+│         eist│ ✅│
+│          tm2│ ✅│
+│        ssse3│ ✅│
+│       cnxtid│ ❌│
+│          fma│ ✅│
+│   cmpxchg16b│ ✅│
+│         pdcm│ ✅│
+│         pcid│ ✅│
+│          dca│ ❌│
+│        sse41│ ✅│
+│        sse42│ ✅│
+│       x2apic│ ✅│
+│        movbe│ ✅│
+│       popcnt│ ✅│
+│ tsc_deadline│ ✅│
+│        aesni│ ✅│
+│        xsave│ ✅│
+│       oxsave│ ✅│
+│          avx│ ✅│
+│         f16c│ ✅│
+│       rdrand│ ✅│
+│   hypervisor│ ❌│
+└─────────────┴───┘
+Cache and TLB information (0x02):
+┌────┬────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│0xf0│                                                                                                         64-Byte prefetching│
+│0xff│                       CPUID leaf 2 does not report cache descriptor information, use CPUID leaf 4 to query cache parameters│
+│0xfe│     CPUID leaf 2 does not report TLB descriptor information; use CPUID leaf 18H to query TLB and other address translation │
+│    │                                                                                                                 parameters.│
+└────┴────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+processor serial number (0x03) = "000906a3-00000000-00000000"
+deterministic cache parameters (0x04):
+L1 Cache:
+┌────────────────────────────────┬─────┐
+│                      cache type│ Data│
+│                     cache level│    1│
+│   self-initializing cache level│   ✅│
+│         fully associative cache│   ❌│
+│      threads sharing this cache│    2│
+│     processor cores on this die│   64│
+│      system coherency line size│   64│
+│        physical line partitions│    1│
+│           ways of associativity│   12│
+│WBINVD/INVD acts on lower caches│   ❌│
+│       inclusive to lower caches│   ❌│
+│          complex cache indexing│   ❌│
+│                  number of sets│   64│
+│                   (size synth.)│49152│
+└────────────────────────────────┴─────┘
+L1 Cache:
+┌────────────────────────────────┬───────────┐
+│                      cache type│Instruction│
+│                     cache level│          1│
+│   self-initializing cache level│         ✅│
+│         fully associative cache│         ❌│
+│      threads sharing this cache│          2│
+│     processor cores on this die│         64│
+│      system coherency line size│         64│
+│        physical line partitions│          1│
+│           ways of associativity│          8│
+│WBINVD/INVD acts on lower caches│         ❌│
+│       inclusive to lower caches│         ❌│
+│          complex cache indexing│         ❌│
+│                  number of sets│         64│
+│                   (size synth.)│      32768│
+└────────────────────────────────┴───────────┘
+L2 Cache:
+┌────────────────────────────────┬───────┐
+│                      cache type│Unified│
+│                     cache level│      2│
+│   self-initializing cache level│     ✅│
+│         fully associative cache│     ❌│
+│      threads sharing this cache│      8│
+│     processor cores on this die│     64│
+│      system coherency line size│     64│
+│        physical line partitions│      1│
+│           ways of associativity│     10│
+│WBINVD/INVD acts on lower caches│     ❌│
+│       inclusive to lower caches│     ❌│
+│          complex cache indexing│     ❌│
+│                  number of sets│   2048│
+│                   (size synth.)│1310720│
+└────────────────────────────────┴───────┘
+L3 Cache:
+┌────────────────────────────────┬────────┐
+│                      cache type│ Unified│
+│                     cache level│       3│
+│   self-initializing cache level│      ✅│
+│         fully associative cache│      ❌│
+│      threads sharing this cache│     128│
+│     processor cores on this die│      64│
+│      system coherency line size│      64│
+│        physical line partitions│       1│
+│           ways of associativity│      12│
+│WBINVD/INVD acts on lower caches│      ❌│
+│       inclusive to lower caches│      ❌│
+│          complex cache indexing│      ✅│
+│                  number of sets│   32768│
+│                   (size synth.)│25165824│
+└────────────────────────────────┴────────┘
+MONITOR/MWAIT (0x05):
+┌───────────────────────────────────┬───┐
+│         smallest monitor-line size│ 64│
+│          largest monitor-line size│ 64│
+│                 MONITOR/MWAIT exts│ ✅│
+│Interrupts as break-event for MWAIT│ ✅│
+└───────────────────────────────────┴───┘
+number of CX sub C-states using MWAIT:
+┌───┬───┬───┬───┬───┬───┬───┬───┐
+│C0 │C1 │C2 │C3 │C4 │C5 │C6 │C7 │
+├───┼───┼───┼───┼───┼───┼───┼───┤
+│ 0 │ 2 │ 0 │ 2 │ 0 │ 1 │ 0 │ 1 │
+└───┴───┴───┴───┴───┴───┴───┴───┘
+Thermal and Power Management Features (0x06):
+┌───────────────────────────────────────┬───┐
+│                    digital thermometer│ ✅│
+│           Intel Turbo Boost Technology│ ✅│
+│         ARAT always running APIC timer│ ✅│
+│           PLN power limit notification│ ✅│
+│    ECMD extended clock modulation duty│ ✅│
+│         PTM package thermal management│ ✅│
+│                     HWP base registers│ ✅│
+│                       HWP notification│ ✅│
+│                    HWP activity window│ ✅│
+│      HWP energy performance preference│ ✅│
+│              HWP package level request│ ✅│
+│                     HDC base registers│ ❌│
+│   Intel Turbo Boost Max Technology 3.0│ ✅│
+│                       HWP capabilities│ ✅│
+│                      HWP PECI override│ ✅│
+│                           flexible HWP│ ✅│
+│  IA32_HWP_REQUEST MSR fast access mode│ ✅│
+│ignoring idle logical processor HWP req│ ✅│
+│          digital thermometer threshold│  2│
+│         hardware coordination feedback│ ✅│
+│     performance-energy bias capability│ ✅│
+└───────────────────────────────────────┴───┘
+Extended feature flags (0x07):
+┌──────────────────────────────────────────────┬───┐
+│                                      FSGSBASE│ ✅│
+│                           IA32_TSC_ADJUST MSR│ ✅│
+│                SGX: Software Guard Extensions│ ❌│
+│                                          BMI1│ ✅│
+│                     HLE hardware lock elision│ ❌│
+│            AVX2: advanced vector extensions 2│ ✅│
+│                               FDP_EXCPTN_ONLY│ ✅│
+│          SMEP supervisor mode exec protection│ ✅│
+│                             BMI2 instructions│ ✅│
+│                      enhanced REP MOVSB/STOSB│ ✅│
+│                           INVPCID instruction│ ✅│
+│          RTM: restricted transactional memory│ ❌│
+│                 RDT-CMT/PQoS cache monitoring│ ❌│
+│                          deprecated FPU CS/DS│ ✅│
+│       MPX: intel memory protection extensions│ ❌│
+│                  RDT-CAT/PQE cache allocation│ ✅│
+│      AVX512F: AVX-512 foundation instructions│ ❌│
+│      AVX512DQ: double & quadword instructions│ ❌│
+│                            RDSEED instruction│ ✅│
+│                              ADX instructions│ ✅│
+│       SMAP: supervisor mode access prevention│ ✅│
+│                AVX512IFMA: fused multiply add│ ❌│
+│                        CLFLUSHOPT instruction│ ✅│
+│                              CLWB instruction│ ✅│
+│                         Intel processor trace│ ✅│
+│               AVX512PF: prefetch instructions│ ❌│
+│        AVX512ER: exponent & reciprocal instrs│ ❌│
+│           AVX512CD: conflict detection instrs│ ❌│
+│                              SHA instructions│ ✅│
+│            AVX512BW: byte & word instructions│ ❌│
+│                       AVX512VL: vector length│ ❌│
+│                                   PREFETCHWT1│ ❌│
+│        UMIP: user-mode instruction prevention│ ✅│
+│             PKU protection keys for user-mode│ ✅│
+│               OSPKE CR4.PKE and RDPKRU/WRPKRU│ ✅│
+│AVX512VNNI: vector neural network instructions│ ❌│
+│      BNDLDX/BNDSTX MAWAU value in 64-bit mode│  0│
+│                      RDPID: read processor ID│ ✅│
+│                     SGX_LC: SGX launch config│ ❌│
+└──────────────────────────────────────────────┴───┘
+Direct Cache Access Parameters (0x09):
+PLATFORM_DCA_CAP MSR bits = 0
+Architecture Performance Monitoring Features (0x0a)
+Monitoring Hardware Info (0x0a/{eax, edx}):
+┌────────────────────────────────┬───┐
+│                      version ID│  5│
+│number of counters per HW thread│  6│
+│            bit width of counter│ 48│
+│        length of EBX bit vector│  7│
+│        number of fixed counters│  3│
+│     bit width of fixed counters│ 48│
+│           anythread deprecation│ ✅│
+└────────────────────────────────┴───┘
+Monitoring Hardware Features (0x0a/ebx):
+┌──────────────────────────────────────────┬───┐
+│            core cycle event not available│ ❌│
+│   instruction retired event not available│ ❌│
+│      reference cycles event not available│ ❌│
+│  last-level cache ref event not available│ ❌│
+│     last-level cache miss event not avail│ ❌│
+│   branch inst retired event not available│ ❌│
+│branch mispred retired event not available│ ❌│
+└──────────────────────────────────────────┴───┘
+x2APIC features / processor topology (0x0b):
+level 0:
+┌─────────────────────────────────────┬───┐
+│                           level type│SMT│
+│                   bit width of level│  1│
+│number of logical processors at level│  2│
+│       x2apic id of current processor│  8│
+└─────────────────────────────────────┴───┘
+level 1:
+┌─────────────────────────────────────┬────┐
+│                           level type│Core│
+│                   bit width of level│   7│
+│number of logical processors at level│  20│
+│       x2apic id of current processor│   8│
+└─────────────────────────────────────┴────┘
+Extended Register State (0x0d/0):
+XCR0/IA32_XSS supported states:
+┌────────┬─────────────────┬───┐
+│XCR0    │              x87│ ✅│
+│XCR0    │        SSE state│ ✅│
+│XCR0    │        AVX state│ ✅│
+│XCR0    │      MPX BNDREGS│ ❌│
+│XCR0    │       MPX BNDCSR│ ❌│
+│XCR0    │   AVX-512 opmask│ ❌│
+│XCR0    │AVX-512 ZMM_Hi256│ ❌│
+│XCR0    │ AVX-512 Hi16_ZMM│ ❌│
+│IA32_XSS│               PT│ ✅│
+│XCR0    │             PKRU│ ✅│
+│IA32_XSS│              HDC│ ❌│
+└────────┴─────────────────┴───┘
+┌───────────────────────────────────┬────┐
+│   bytes required by fields in XCR0│2696│
+│bytes required by XSAVE/XRSTOR area│2696│
+└───────────────────────────────────┴────┘
+XSAVE features (0x0d/1):
+┌───────────────────────────┬────┐
+│       XSAVEOPT instruction│  ✅│
+│         XSAVEC instruction│  ✅│
+│         XGETBV instruction│  ✅│
+│XSAVES/XRSTORS instructions│  ✅│
+│     SAVE area size [Bytes]│1648│
+└───────────────────────────┴────┘
+AVX/YMM features (0x0d/2):
+┌────────────────────────────────────┬─────────────────┐
+│             save state size [Bytes]│              256│
+│              save state byte offset│              576│
+│       supported in IA32_XSS or XCR0│XCR0 (user state)│
+│64-byte alignment in compacted XSAVE│               ❌│
+└────────────────────────────────────┴─────────────────┘
+PT features (0x0d/8):
+┌────────────────────────────────────┬───────────────────────────┐
+│             save state size [Bytes]│                        128│
+│              save state byte offset│                          0│
+│       supported in IA32_XSS or XCR0│IA32_XSS (supervisor state)│
+│64-byte alignment in compacted XSAVE│                         ❌│
+└────────────────────────────────────┴───────────────────────────┘
+PKRU features (0x0d/9):
+┌────────────────────────────────────┬─────────────────┐
+│             save state size [Bytes]│                8│
+│              save state byte offset│             2688│
+│       supported in IA32_XSS or XCR0│XCR0 (user state)│
+│64-byte alignment in compacted XSAVE│               ❌│
+└────────────────────────────────────┴─────────────────┘
+Unknown(11) features (0x0d/11):
+┌────────────────────────────────────┬───────────────────────────┐
+│             save state size [Bytes]│                         16│
+│              save state byte offset│                          0│
+│       supported in IA32_XSS or XCR0│IA32_XSS (supervisor state)│
+│64-byte alignment in compacted XSAVE│                         ❌│
+└────────────────────────────────────┴───────────────────────────┘
+Unknown(12) features (0x0d/12):
+┌────────────────────────────────────┬───────────────────────────┐
+│             save state size [Bytes]│                         24│
+│              save state byte offset│                          0│
+│       supported in IA32_XSS or XCR0│IA32_XSS (supervisor state)│
+│64-byte alignment in compacted XSAVE│                         ❌│
+└────────────────────────────────────┴───────────────────────────┘
+Unknown(15) features (0x0d/15):
+┌────────────────────────────────────┬───────────────────────────┐
+│             save state size [Bytes]│                        808│
+│              save state byte offset│                          0│
+│       supported in IA32_XSS or XCR0│IA32_XSS (supervisor state)│
+│64-byte alignment in compacted XSAVE│                         ❌│
+└────────────────────────────────────┴───────────────────────────┘
+Unknown(16) features (0x0d/16):
+┌────────────────────────────────────┬───────────────────────────┐
+│             save state size [Bytes]│                          8│
+│              save state byte offset│                          0│
+│       supported in IA32_XSS or XCR0│IA32_XSS (supervisor state)│
+│64-byte alignment in compacted XSAVE│                         ❌│
+└────────────────────────────────────┴───────────────────────────┘
+Quality of Service Monitoring Resource Type (0x0f/0):
+┌───────────────────────┬───┐
+│  Maximum range of RMID│  0│
+│L3 cache QoS monitoring│ ❌│
+└───────────────────────┴───┘
+Resource Director Technology Allocation (0x10/0)
+┌──────────────────────────────┬───┐
+│L3 cache allocation technology│ ❌│
+│L2 cache allocation technology│ ✅│
+│   memory bandwidth allocation│ ❌│
+└──────────────────────────────┴───┘
+L2 Cache Allocation Technology (0x10/2):
+┌────────────────────────────────────────┬───┐
+│             length of capacity bit mask│ 10│
+│Bit-granular map of isolation/contention│  0│
+│                      highest COS number│  7│
+└────────────────────────────────────────┴───┘
+Intel Processor Trace (0x14):
+┌──────────────────────────────────────┬───┐
+│     IA32_RTIT_CR3_MATCH is accessible│ ✅│
+│     configurable PSB & cycle-accurate│ ✅│
+│ IP & TraceStop filtering; PT preserve│ ✅│
+│MTC timing packet; suppress COFI-based│ ✅│
+│                               PTWRITE│ ✅│
+│                     power event trace│ ❌│
+│                    ToPA output scheme│ ✅│
+│     ToPA can hold many output entries│ ✅│
+│    single-range output scheme support│ ✅│
+│             output to trace transport│ ❌│
+│      IP payloads have LIP values & CS│ ❌│
+│           configurable address ranges│  2│
+│         supported MTC periods bitmask│585│
+│     supported cycle threshold bitmask│ 63│
+│     supported config PSB freq bitmask│ 63│
+└──────────────────────────────────────┴───┘
+Time Stamp Counter/Core Crystal Clock Information (0x15):
+┌──────────────────────────┬────────┐
+│           TSC/clock ratio│ 140 / 2│
+│nominal core crystal clock│38400000│
+└──────────────────────────┴────────┘
+Processor Frequency Information (0x16):
+┌───────────────────────────────┬────┐
+│      Core Base Frequency (MHz)│2700│
+│   Core Maximum Frequency (MHz)│4700│
+│Bus (Reference) Frequency (MHz)│ 100│
+└───────────────────────────────┴────┘
+Deterministic Address Translation Structure (0x18/0):
+┌─────────────────────────────────┬───────────────┐
+│                   number of sets│             32│
+│          4 KiB page size entries│             ✅│
+│          2 MiB page size entries│             ❌│
+│          4 MiB page size entries│             ❌│
+│          1 GiB page size entries│             ❌│
+│                     partitioning│              0│
+│            ways of associativity│              8│
+│           translation cache type│Instruction TLB│
+│          translation cache level│              1│
+│                fully associative│             ❌│
+│maximum number of addressible IDs│              2│
+│maximum number of addressible IDs│              2│
+└─────────────────────────────────┴───────────────┘
+Deterministic Address Translation Structure (0x18/1):
+┌─────────────────────────────────┬───────────────┐
+│                   number of sets│              4│
+│          4 KiB page size entries│             ❌│
+│          2 MiB page size entries│             ✅│
+│          4 MiB page size entries│             ✅│
+│          1 GiB page size entries│             ❌│
+│                     partitioning│              0│
+│            ways of associativity│              8│
+│           translation cache type│Instruction TLB│
+│          translation cache level│              1│
+│                fully associative│             ❌│
+│maximum number of addressible IDs│              2│
+│maximum number of addressible IDs│              2│
+└─────────────────────────────────┴───────────────┘
+Deterministic Address Translation Structure (0x18/2):
+┌─────────────────────────────────┬──────────┐
+│                   number of sets│         1│
+│          4 KiB page size entries│        ✅│
+│          2 MiB page size entries│        ✅│
+│          4 MiB page size entries│        ✅│
+│          1 GiB page size entries│        ✅│
+│                     partitioning│         0│
+│            ways of associativity│        16│
+│           translation cache type│Store Only│
+│          translation cache level│         1│
+│                fully associative│        ✅│
+│maximum number of addressible IDs│         2│
+│maximum number of addressible IDs│         2│
+└─────────────────────────────────┴──────────┘
+Deterministic Address Translation Structure (0x18/3):
+┌─────────────────────────────────┬─────────┐
+│                   number of sets│       16│
+│          4 KiB page size entries│       ✅│
+│          2 MiB page size entries│       ❌│
+│          4 MiB page size entries│       ❌│
+│          1 GiB page size entries│       ❌│
+│                     partitioning│        0│
+│            ways of associativity│        4│
+│           translation cache type│Load Only│
+│          translation cache level│        1│
+│                fully associative│       ❌│
+│maximum number of addressible IDs│        2│
+│maximum number of addressible IDs│        2│
+└─────────────────────────────────┴─────────┘
+Deterministic Address Translation Structure (0x18/4):
+┌─────────────────────────────────┬─────────┐
+│                   number of sets│        8│
+│          4 KiB page size entries│       ❌│
+│          2 MiB page size entries│       ✅│
+│          4 MiB page size entries│       ✅│
+│          1 GiB page size entries│       ❌│
+│                     partitioning│        0│
+│            ways of associativity│        4│
+│           translation cache type│Load Only│
+│          translation cache level│        1│
+│                fully associative│       ❌│
+│maximum number of addressible IDs│        2│
+│maximum number of addressible IDs│        2│
+└─────────────────────────────────┴─────────┘
+Deterministic Address Translation Structure (0x18/5):
+┌─────────────────────────────────┬─────────┐
+│                   number of sets│        1│
+│          4 KiB page size entries│       ❌│
+│          2 MiB page size entries│       ❌│
+│          4 MiB page size entries│       ❌│
+│          1 GiB page size entries│       ✅│
+│                     partitioning│        0│
+│            ways of associativity│        8│
+│           translation cache type│Load Only│
+│          translation cache level│        1│
+│                fully associative│       ✅│
+│maximum number of addressible IDs│        2│
+│maximum number of addressible IDs│        2│
+└─────────────────────────────────┴─────────┘
+Deterministic Address Translation Structure (0x18/6):
+┌─────────────────────────────────┬───────────┐
+│                   number of sets│        128│
+│          4 KiB page size entries│         ✅│
+│          2 MiB page size entries│         ✅│
+│          4 MiB page size entries│         ✅│
+│          1 GiB page size entries│         ❌│
+│                     partitioning│          0│
+│            ways of associativity│          8│
+│           translation cache type│Unified TLB│
+│          translation cache level│          2│
+│                fully associative│         ❌│
+│maximum number of addressible IDs│          2│
+│maximum number of addressible IDs│          2│
+└─────────────────────────────────┴───────────┘
+Deterministic Address Translation Structure (0x18/7):
+┌─────────────────────────────────┬───────────┐
+│                   number of sets│        128│
+│          4 KiB page size entries│         ✅│
+│          2 MiB page size entries│         ❌│
+│          4 MiB page size entries│         ❌│
+│          1 GiB page size entries│         ✅│
+│                     partitioning│          0│
+│            ways of associativity│          8│
+│           translation cache type│Unified TLB│
+│          translation cache level│          2│
+│                fully associative│         ❌│
+│maximum number of addressible IDs│          2│
+│maximum number of addressible IDs│          2│
+└─────────────────────────────────┴───────────┘
+System-on-Chip (SoC) Vendor Info (0x17):
+┌────────────┬───┐
+│   Vendor ID│  0│
+│  Project ID│  0│
+│ Stepping ID│  0│
+│Vendor Brand│   │
+└────────────┴───┘
+Processor Brand String = "12th Gen Intel(R) Core(TM) i7-12700H"
+L2 TLB 2/4 MiB entries (0x8000_0006/eax):
+┌──────────────────┬────────┐
+│     iTLB #entries│       0│
+│iTLB associativity│Disabled│
+│     dTLB #entries│       0│
+│dTLB associativity│Disabled│
+└──────────────────┴────────┘
+L2 TLB 4 KiB entries (0x8000_0006/ebx):
+┌──────────────────┬────────┐
+│     iTLB #entries│       0│
+│iTLB associativity│Disabled│
+│     dTLB #entries│       0│
+│dTLB associativity│Disabled│
+└──────────────────┴────────┘
+L2 Cache (0x8000_0006/ecx):
+┌─────────────────┬────────────────────────────────┐
+│line size [Bytes]│                              64│
+│    lines per tag│                               0│
+│    associativity│Unknown (check leaf 0x8000_001d)│
+│       size [KiB]│                            1280│
+└─────────────────┴────────────────────────────────┘
+L3 Cache (0x8000_0006/edx):
+┌─────────────────┬────────┐
+│line size [Bytes]│       0│
+│    lines per tag│       0│
+│    associativity│Disabled│
+│       size [KiB]│       0│
+└─────────────────┴────────┘
+RAS Capability (0x8000_0007/ebx):
+┌─────────────────────┬───┐
+│MCA overflow recovery│ ❌│
+│               SUCCOR│ ❌│
+│ HWA: hardware assert│ ❌│
+└─────────────────────┴───┘
+Advanced Power Management (0x8000_0007/ecx):
+Ratio of Compute Unit Power Acc. sample period to TSC = 0
+Advanced Power Management (0x8000_0007/edx):
+┌───────────────────────────────────────┬───┐
+│          TS: temperature sensing diode│ ❌│
+│              FID: frequency ID control│ ❌│
+│                VID: voltage ID control│ ❌│
+│                      TTP: thermal trip│ ❌│
+│                    TM: thermal monitor│ ❌│
+│             100 MHz multiplier control│ ❌│
+│               hardware P-State control│ ❌│
+│                          Invariant TSC│ ✅│
+│            CPB: core performance boost│ ❌│
+│read-only effective frequency interface│ ❌│
+│           processor feedback interface│ ❌│
+│                    APM power reporting│ ❌│
+└───────────────────────────────────────┴───┘
+Physical Address and Linear Address Size (0x8000_0008/eax):
+┌───────────────────────────────────────┬───┐
+│        maximum physical address [Bits]│ 39│
+│maximum linear (virtual) address [Bits]│ 48│
+│  maximum guest physical address [Bits]│  0│
+└───────────────────────────────────────┴───┘
+Extended Feature Extensions ID (0x8000_0008/ebx):
+┌──────────────────────────────────┬───┐
+│                            CLZERO│ ❌│
+│        instructions retired count│ ❌│
+│always save/restore error pointers│ ❌│
+│                             RDPRU│ ❌│
+│                           INVLPGB│ ❌│
+│                           MCOMMIT│ ❌│
+│                          WBNOINVD│ ❌│
+│     WBNOINVD/WBINVD interruptible│ ❌│
+│            EFER.LMSLE unsupported│ ❌│
+│        INVLPGB with nested paging│ ❌│
+└──────────────────────────────────┴───┘
+Size Identifiers (0x8000_0008/ecx):
+┌───────────────────────┬───┐
+│     Logical processors│  1│
+│      APIC core ID size│  0│
+│Max. logical processors│  1│
+│  Perf. TSC size [Bits]│ 40│
+└───────────────────────┴───┘
+Size Identifiers (0x8000_0008/edx):
+┌──────────────────────┬───┐
+│RDPRU max. input value│  0│
+│   INVLPGB max. #pages│  0│
+└──────────────────────┴───┘

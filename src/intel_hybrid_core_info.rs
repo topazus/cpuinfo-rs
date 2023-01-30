@@ -1,5 +1,4 @@
 use crate::utils::{cpuid_count, extract_bit, extract_bits};
-
 #[cfg(target_arch = "x86_64")]
 use std::arch::x86_64::CpuidResult;
 
@@ -40,15 +39,37 @@ pub fn get_cpu_purpose() -> CpuPurpose {
     }
 }
 
+// Detect if Hetero Core is supported.
+//   Check for CPU whether is Hetrogenous or not.
+// Check Hetero feature is supported
+// with CPUID.(EAX=7,ECX=0):EDX[15]=1
+pub fn is_hetero_core_supported() -> bool {
+    let cpuid = cpuid_count(0x7, 0x0);
+    extract_bit(cpuid.edx, 15) == 0x1
+}
 
 /* https://github.com/slimbootloader/slimbootloader/blob/master/Platform/AlderlakeBoardPkg/Library/Stage2BoardInitLib/CpuInfoLib.c */
 
+// CPUID Native Model ID Information
+//   @param   EAX  CPUID_NATIVE_MODEL_ID_INFO (0x1A)
+//   @retval  EAX  Value of bits [23:0] gives Native Model ID
+//                 Value of bits [31:24] gives Core Type. 0x40 - Core, 0x20 - Atom
+//   @retval  EBX  Reserved.
+//   @retval  ECX  Reserved.
+//   @retval  EDX  Reserved.
+// Detect the type of core.
+
+//   get the core type which is running
+//   10h - Quark
+//   20h - Atom
+//   30H - Knights
+//   40H - Core
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd)]
 #[repr(u8)]
 pub enum HybridCoreType {
-    _Reserved1 = 0x10, // Quark?
+    Quark = 0x10, // Quark?
     Atom = 0x20,
-    _Reserved2 = 0x30, // Knights?
+    Knights = 0x30, // Knights?
     Core = 0x40,
     Invalid,
 }
@@ -62,9 +83,9 @@ impl std::fmt::Display for HybridCoreType {
 impl From<&CpuidResult> for HybridCoreType {
     fn from(cpuid: &CpuidResult) -> Self {
         match cpuid.eax >> 24 {
-            0x10 => HybridCoreType::_Reserved1,
+            0x10 => HybridCoreType::Quark,
             0x20 => HybridCoreType::Atom,
-            0x30 => HybridCoreType::_Reserved2,
+            0x30 => HybridCoreType::Knights,
             0x40 => HybridCoreType::Core,
             _ => Self::Invalid,
         }
@@ -84,14 +105,30 @@ impl HybridInfo {
         Self::get_hybrid_info_from_cpuid(&cpuid)
     }
 
+    // Check which is the running core by reading CPUID.(EAX=1AH, ECX=00H):EAX[31:24]
+    //  10h - Quark
+    //  20h - Atom
+    //  30h - Knights
+    //  40h - Core
     pub fn get_core_type(cpuid: &CpuidResult) -> Option<HybridCoreType> {
         let core_type = HybridCoreType::from(cpuid);
 
         if core_type == HybridCoreType::Invalid {
             return None;
         }
-
         Some(core_type)
+    }
+
+    // Check which is the running core by reading CPUID.(EAX=1AH, ECX=00H):EAX[31:24]
+    pub fn get_core_type2(cpuid: &CpuidResult) -> Option<HybridCoreType> {
+        let cpuid_data = extract_bits(cpuid.eax, 31, 24);
+        match cpuid_data {
+            0x10 => Some(HybridCoreType::Quark),
+            0x20 => Some(HybridCoreType::Atom),
+            0x30 => Some(HybridCoreType::Knights),
+            0x40 => Some(HybridCoreType::Core),
+            _ => None,
+        }
     }
 
     pub fn get_native_model_id(cpuid: &CpuidResult) -> u32 {
@@ -99,9 +136,28 @@ impl HybridInfo {
     }
 }
 
+#[derive(Debug)]
+#[repr(u32)]
+pub enum IntelNativeModelId {
+    /* Atom */
+    Tremont = Self::TNT,
+    /// Gracemont microarchitecture is used in the efficiency cores (E-core)
+    /// of the 12th-generation Intel Core processors (codenamed "Alder Lake")
+    Gracemont = Self::GRT,
+    Crestmont = Self::CMT,
+    /* Core */
+    SunnyCove = Self::SNC,
+    /// GoldenCove microarchitecture is used in the high-performance cores (P-core)
+    /// of the 12th-generation Intel Core processors (codenamed "Alder Lake")
+    GoldenCove = Self::GLC,
+    RedwoodCove = Self::RWC,
+    /* */
+    Unknown(u32),
+}
+
 /* https://github.com/intel/perfmon/blob/main/mapfile.csv */
 impl IntelNativeModelId {
-    const fn gen_eax(core_type: HybridCoreType, nid: u32) -> u32 {
+    pub const fn gen_eax(core_type: HybridCoreType, nid: u32) -> u32 {
         ((core_type as u32) << 24) | (nid & 0x00FFFFFF)
     }
 
@@ -114,31 +170,16 @@ impl IntelNativeModelId {
     const RWC: u32 = Self::gen_eax(HybridCoreType::Core, 0x2);
 }
 
-#[derive(Debug)]
-#[repr(u32)]
-enum IntelNativeModelId {
-    /* Atom */
-    Tremont = Self::TNT,
-    Gracemont = Self::GRT,
-    Crestmont = Self::CMT,
-    /* Core */
-    SunnyCove = Self::SNC,
-    GoldenCove = Self::GLC,
-    RedwoodCove = Self::RWC,
-    /* */
-    _Reserved,
-}
-
-impl From<u32> for IntelNativeModelId {
-    fn from(eax: u32) -> Self {
-        match eax {
+impl From<&CpuidResult> for IntelNativeModelId {
+    fn from(cpuid: &CpuidResult) -> Self {
+        match cpuid.eax & 0x00FFFFFF {
             Self::TNT => Self::Tremont,
             Self::GRT => Self::Gracemont,
             Self::CMT => Self::Crestmont,
             Self::SNC => Self::SunnyCove,
             Self::GLC => Self::GoldenCove,
             Self::RWC => Self::RedwoodCove,
-            _ => Self::_Reserved,
+            _ => Self::Unknown(cpuid.eax),
         }
     }
 }
